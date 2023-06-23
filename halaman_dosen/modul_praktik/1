@@ -1,0 +1,138 @@
+<?php
+// Query SQL untuk mengambil data nilai, informasi mahasiswa, dan judul modul
+$query = "SELECT * FROM tbl_nilai_mhs 
+          INNER JOIN tbl_attempt_mhs ON tbl_nilai_mhs.id_attempt_mhs = tbl_attempt_mhs.id_attempt_mhs 
+          INNER JOIN tbl_matkulmhs ON tbl_attempt_mhs.id_matkulmhs = tbl_matkulmhs.id_matkulmhs 
+          INNER JOIN tbl_mahasiswa ON tbl_matkulmhs.id_mhs = tbl_mahasiswa.id_mhs
+          INNER JOIN tbl_modulpraktik ON tbl_attempt_mhs.id_modul = tbl_modulpraktik.id_modul";
+
+$result = mysqli_query($koneksi, $query);
+
+$judul_modul = 'Data tidak ditemukan';
+if (mysqli_num_rows($result) > 0) {
+    $datamhs = mysqli_fetch_assoc($result);
+    $judul_modul = isset($datamhs['judul_modul']) ? $datamhs['judul_modul'] : 'Data tidak ditemukan';
+}
+?>
+<div class="card bg-primary">
+    <div class="card-body">
+        <h6 class='m-0 font-weight-bold text-white'>Data nilai mahasiswa </h6>
+    </div>
+</div>
+<hr>
+
+<button type="button" class="btn btn-primary" id="exportnilai">Export Nilai</button>
+
+<div>
+    <div class="card shadow mb-4 mt-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>Nilai</th>
+                            <th>Judul Modul</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $nomhs = 1;
+                        $id_mhs = $datamhs['id_mhs'];
+                        $username = isset($datamhs['username']) ? $datamhs['username'] : 'Data tidak ditemukan';
+                        $nim_mhs = isset($datamhs['nim_mhs']) ? $datamhs['nim_mhs'] : 'Data tidak ditemukan';
+                        $judul_modul = isset($datamhs['judul_modul']) ? $datamhs['judul_modul'] : 'Data tidak ditemukan';
+                        ?>
+                        <tr>
+                            <td><?= $nomhs ?></td>
+                            <td><?= $username ?></td>
+                            <td><?= $nim_mhs ?></td>
+                            <td><?= $datamhs['nilai'] ?></td>
+                            <td><?= $judul_modul ?></td>
+                        </tr>
+                        <?php
+                        $nomhs++;
+                        while ($datamhs = mysqli_fetch_assoc($result)) {
+                            $id_mhs = $datamhs['id_mhs'];
+                            $username = isset($datamhs['username']) ? $datamhs['username'] : 'Data tidak ditemukan';
+                            $nim_mhs = isset($datamhs['nim_mhs']) ? $datamhs['nim_mhs'] : 'Data tidak ditemukan';
+                            $judul_modul = isset($datamhs['judul_modul']) ? $datamhs['judul_modul'] : 'Data tidak ditemukan';
+                            ?>
+                            <tr>
+                                <td><?= $nomhs ?></td>
+                                <td><?= $username ?></td>
+                                <td><?= $nim_mhs ?></td>
+                                <td><?= $datamhs['nilai'] ?></td>
+                                <td><?= $judul_modul ?></td>
+                            </tr>
+                            <?php
+                            $nomhs++;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/dxspreadsheet"></script>
+<script>
+    document.getElementById("exportnilai").addEventListener("click", function () {
+        // Data untuk diekspor
+        var data = [
+            ["No", "Nama", "NIM", "Nilai"],
+            [<?= $nomhs ?>, "<?= $username ?>", "<?= $nim_mhs ?>", "<?= $datamhs['nilai'] ?>"],
+            // Tambahkan data lainnya jika diperlukan
+        ];
+
+        // Membuat objek workbook baru
+        var workbook = new dhx.Workbook();
+
+        // Membuat worksheet baru
+        var worksheet = workbook.addWorksheet("Data Nilai");
+
+        // Mengisi data ke dalam worksheet
+        for (var i = 0; i < data.length; i++) {
+            var rowData = data[i];
+            for (var j = 0; j < rowData.length; j++) {
+                worksheet.setCellValue(i, j, rowData[j]);
+            }
+        }
+
+        // Mengatur judul kolom
+        worksheet.setCellBold(0, 0, true);
+        worksheet.setCellBold(0, 1, true);
+        worksheet.setCellBold(0, 2, true);
+        worksheet.setCellBold(0, 3, true);
+
+        // Menentukan nilai $nomhs, $username, $nim_mhs, $datamhs['nilai'] dari $judul_modul yang diinginkan
+        var judulModul = "<?= $judul_modul ?>";
+        if (judulModul === "Judul Modul yang Diinginkan") {
+            var nomhs = 1; // Nilai dari $nomhs
+            var username = "Nama Mahasiswa"; // Nilai dari $username
+            var nim_mhs = "NIM Mahasiswa"; // Nilai dari $nim_mhs
+            var nilai = "Nilai Mahasiswa"; // Nilai dari $datamhs['nilai']
+
+            // Mengatur judul kolom
+            worksheet.setCellValue(0, 4, "Data Dari Judul Modul " + judulModul);
+            worksheet.setCellBold(0, 4, true);
+
+            // Mengisi data ke dalam worksheet
+            worksheet.setCellValue(1, 0, nomhs);
+            worksheet.setCellValue(1, 1, username);
+            worksheet.setCellValue(1, 2, nim_mhs);
+            worksheet.setCellValue(1, 3, nilai);
+        }
+
+        // Menyimpan workbook menjadi file Excel
+        workbook.saveAs("export_data.xlsx");
+    });
+</script>
+
+
+
+
+bantu saya periksa kenapa pada saat klik Export Nilai error

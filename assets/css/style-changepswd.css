@@ -1,0 +1,23 @@
+#pass1 {
+    position: absolute;
+    right: 30px;
+    transform: translate(0, -5%);
+    top: 129px;
+    cursor: pointer;
+}
+
+#pass2 {
+    position: absolute;
+    right: 30px;
+    transform: translate(0, -5%);
+    top: 215px;
+    cursor: pointer;
+}
+
+#pass3 {
+    position: absolute;
+    right: 30px;
+    transform: translate(0, -5%);
+    top: 300px;
+    cursor: pointer;
+}

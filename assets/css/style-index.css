@@ -1,0 +1,176 @@
+#virtuallab {
+  text-align: center;
+  font-weight: 800;
+  color: white;
+}
+
+body {
+  margin: 0px;
+  background-color: rgb(165, 164, 164);
+}
+
+
+.container h2 {
+  margin-left: -2rem;
+}
+
+.nav-item {
+  width: 7em;
+  text-align: left;
+}
+
+#background {
+  margin-top: -10px;
+  background: url(../../assets/img/poltek.jpg);
+  background-size: cover;
+  padding-top: 111px;
+  height: 638px;
+  max-height: 1112px;
+}
+
+#background .jumbotron h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  margin-top: 200px;
+}
+
+#background .jumbotron p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+#home {
+  text-align: center;
+}
+
+#home .container h1 {
+  margin: 36px;
+  padding-top: 20px;
+}
+
+#home .container .row {
+  margin: -3px;
+}
+
+#home .isi .container.atas {
+  background-color: #f9f8f8;
+  margin-top: -85px;
+  padding-bottom: 37px;
+  border-radius: 15px;
+}
+
+.fa-solid {
+  position: relative;
+  font-size: 42px;
+  color: #27475e;
+  padding-bottom: 20px;
+}
+
+.container.bawah {
+  text-align: center;
+}
+
+.container h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#info {
+  margin-top: 31px;
+  background-color: #d6d6d6;
+}
+
+#info .container {
+  margin-top: 31px;
+  padding-top: 43px;
+  padding-bottom: 25px;
+}
+
+#info .container .row .col h1 {
+  padding-bottom: 20px;
+}
+
+.bg-vlab {
+  color: #fff
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+} 
+
+.footer-brand {
+  font-size: 40pt;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-login {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  color: black;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn-login:hover{
+  background-color: #6c7986;
+  
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgba(255, 255, 255);
+}
+
+
+
+
+
+
+
+
+/* #about{
+  background-color: #102128;
+  color: white;
+}
+
+#about .container{
+  width: 100%;
+  padding: 55px;
+}
+
+#about .container.footer .col-lg-6.col-md-6.col-sm-12.col-xs-12{
+  font-family:petitamedium;
+  color:#eee;
+}
+
+.input-group.input-group-lg{
+  margin-top:23px;
+}
+
+#icon{
+  color:white;
+  font-size:37px;
+  margin-top:20px;
+  position:static;
+}
+
+#icon i.fa.fa-facebook-official{
+  margin-left:17px;
+}
+
+#icon i.fa.fa-twitter-square{
+  margin-left:17px;
+}
+
+#icon i.fa.fa-youtube-play{
+  margin-left:17px;
+}
+
+#kaki{
+  color: rgb(40,78,94);
+  background-color: #0f1517;
+} */

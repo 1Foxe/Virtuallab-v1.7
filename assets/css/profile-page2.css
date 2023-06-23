@@ -1,0 +1,119 @@
+
+
+.profile-links{
+    background-color: #4070f4;
+    padding: 30px 20px;
+    text-align: center;
+    margin: 100px 40px 0 40px;
+    border-radius: 10px;
+}
+
+/* .profile-links img{ */
+    /* width: 200px; */
+    /* height: 200px; */
+    /* clip-path: circle(); */
+    /* border-radius: 50%; */
+/* } */
+
+.profile-links li{
+    display: block;
+    margin: 10px 0;
+}
+
+.btn-edit{
+    color: white;
+}
+
+.btn-edit:hover{
+    color: rgb(190, 190, 190);
+    
+  }
+
+.profile-links li h2{
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.profile-links .card-img{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+  }
+
+.mt-costum{
+    margin-top: 100px;   
+}
+
+.mt-costum .details{
+    border-bottom: 1px solid #472b01;
+    padding: 20px;
+    font-weight: 700;
+    color: black;
+}
+
+@media (max-width:1200px) {
+    .mt-costum{
+        margin-top: 50px;
+    }
+    .profile-links{
+        background-color: #4070f4;
+        padding: 30px 20px;
+        text-align: center;
+        margin: 50px 50px 0 50px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width:991px) {
+    .mt-costum{
+        margin-top: 20px;
+    }
+    .profile-links{
+        background-color: #4070f4;
+        padding: 30px 20px;
+        text-align: center;
+        margin: 20px 0 0 0;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width:600px) {
+    .profile-links li{
+        margin: 0;
+    }
+    .profile-links img{
+        margin-bottom: 10px;
+    }
+    .mt-costum .details {
+        padding: 10px;
+    }
+}
+
+@media (max-width:300px) {
+    .profile-links li{
+        margin: 0;
+    }
+    .profile-links img{
+        margin-bottom: 10px;
+    }
+    .mt-costum .details {
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

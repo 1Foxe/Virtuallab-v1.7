@@ -1,0 +1,15 @@
+#pass1 {
+    position: absolute;
+    right: 70px;
+    transform: translate(0, -5%);
+    top: 475px;
+    cursor: pointer;
+}
+
+#pass2 {
+    position: absolute;
+    right: 70px;
+    transform: translate(0, -5%);
+    top: 542px;
+    cursor: pointer;
+}
